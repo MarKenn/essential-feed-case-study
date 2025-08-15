@@ -13,7 +13,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
 
-
         XCTAssert(client.requestedURLs.isEmpty)
     }
 
