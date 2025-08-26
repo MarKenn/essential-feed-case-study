@@ -23,3 +23,4 @@ jobs:
         -project EssentialFeed/EssentialFeed.xcodeproj
         -scheme "CI"
         CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        | xcpretty --test --color
