@@ -117,8 +117,8 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     ) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
-        trackForMemoryLeaks(sut, file: #filePath, line: line)
-        trackForMemoryLeaks(client, file: #filePath, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(client, file: file, line: line)
         return (sut, client)
     }
 
