@@ -21,7 +21,7 @@ public final class LocalFeedLoader {
     }
 
     private var maxCacheAgeInDays: Int { 7 }
-    
+
     private func validate(_ timestamp: Date) -> Bool {
         guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
             return false
@@ -51,7 +51,7 @@ extension LocalFeedLoader {
     }
 }
 
-extension LocalFeedLoader {
+extension LocalFeedLoader: FeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let self else { return }
