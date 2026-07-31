@@ -87,6 +87,7 @@
 				CoreDataFeedStore.swift,
 				FeedCachePolicy.swift,
 				FeedStore.swift,
+				FeedStore.xcdatamodeld,
 				LocalFeedImage.swift,
 				LocalFeedLoader.swift,
 			);
