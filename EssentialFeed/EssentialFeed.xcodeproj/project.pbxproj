@@ -83,9 +83,9 @@
 		EF9707242E860DED002CE459 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				CodableFeedStore.swift,
 				FeedCachePolicy.swift,
 				FeedStore.swift,
+				Infrastructure/Codable/CodableFeedStore.swift,
 				Infrastructure/CoreData/CoreDataFeedStore.swift,
 				Infrastructure/CoreData/FeedStore.xcdatamodeld,
 				LocalFeedImage.swift,
