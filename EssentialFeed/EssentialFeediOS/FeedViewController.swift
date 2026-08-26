@@ -23,6 +23,7 @@ public final class FeedViewController: UITableViewController {
     private var imageLoader: FeedImageDataLoader?
     private var tableModel = [FeedImage]()
     private var tasks = [IndexPath: FeedImageDataLoaderTask]()
+    private var onViewIsAppearing: ((FeedViewController) -> Void)?
 
     public convenience init(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) {
         self.init()
@@ -35,13 +36,16 @@ public final class FeedViewController: UITableViewController {
 
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        load()
+        onViewIsAppearing = { vc in
+            vc.onViewIsAppearing = nil
+            vc.load()
+        }
     }
 
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
 
-        refreshControl?.beginRefreshing()
+        onViewIsAppearing?(self)
     }
 
     @objc private func load() {
