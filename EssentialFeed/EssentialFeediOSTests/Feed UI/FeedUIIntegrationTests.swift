@@ -222,7 +222,6 @@ final class FeedUIIntegrationTests: XCTestCase {
         loader.completeFeedLoading(with: [image0, image1])
         XCTAssertEqual(loader.loadedImageURLs, [], "Expected no image URL request until image is near visible")
 
-
         sut.simulateFeedImageViewNearVisible(at: 0)
         XCTAssertEqual(loader.loadedImageURLs, [image0.url], "Expected first image URL request once first image is near visible")
 
@@ -255,6 +254,18 @@ final class FeedUIIntegrationTests: XCTestCase {
         loader.completeImageLoading(with: anyImageData(), at: 0)
 
         XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
+    }
+
+    func test_loadFeedCompletion_dispatchesFromBackgroundToMainThread() {
+        let (sut, loader) = makeSUT()
+        sut.simulateAppearance()
+
+        let exp = expectation(description: "Wait for background queue")
+        DispatchQueue.global().async {
+            loader.completeFeedLoading()
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
 
     // MARK: - Helpers
