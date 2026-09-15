@@ -16,10 +16,6 @@ protocol FeedView: AnyObject {
     func display(_ viewModel: FeedViewModel)
 }
 
-struct FeedErrorViewModel {
-    let message: String?
-}
-
 protocol FeedErrorView: AnyObject {
     func display(_ viewModel: FeedErrorViewModel)
 }
