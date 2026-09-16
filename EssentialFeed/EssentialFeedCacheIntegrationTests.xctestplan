@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "CEC2EF5E-3E4B-4005-9FEA-BAC990C30E9A",
+      "id" : "6BF19600-1CA8-4839-8643-FB9D1DA52F02",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -18,26 +18,10 @@
         }
       ]
     },
-    "testExecutionOrdering" : "random",
-    "threadSanitizerEnabled" : true
+    "performanceAntipatternCheckerEnabled" : true,
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
-    {
-      "parallelizable" : false,
-      "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "EFAA8C7E2E5713D400506872",
-        "name" : "EssentialFeedAPIEndToEndTests"
-      }
-    },
-    {
-      "parallelizable" : false,
-      "target" : {
-        "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "080EDEF921B6DA7E00813479",
-        "name" : "EssentialFeedTests"
-      }
-    },
     {
       "parallelizable" : false,
       "target" : {
