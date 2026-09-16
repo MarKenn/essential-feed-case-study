@@ -67,6 +67,7 @@
 			membershipExceptions = (
 				CacheFeedUseCaseTests.swift,
 				CodableFeedStoreTests.swift,
+				CoreDataFeedStoreTests.swift,
 				FeedStoreSpecs/FeedStoreSpecs.swift,
 				"FeedStoreSpecs/XCTestCase+FailableDeleteFeedStoreSpecs.swift",
 				"FeedStoreSpecs/XCTestCase+FailableInsertFeedStoreSpecs.swift",
@@ -82,9 +83,14 @@
 		EF9707242E860DED002CE459 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				CodableFeedStore.swift,
 				FeedCachePolicy.swift,
 				FeedStore.swift,
+				Infrastructure/Codable/CodableFeedStore.swift,
+				Infrastructure/CoreData/CoreDataFeedStore.swift,
+				Infrastructure/CoreData/CoreDataHelpers.swift,
+				Infrastructure/CoreData/FeedStore.xcdatamodeld,
+				Infrastructure/CoreData/ManagedCache.swift,
+				Infrastructure/CoreData/ManagedFeedImage.swift,
 				LocalFeedImage.swift,
 				LocalFeedLoader.swift,
 			);
