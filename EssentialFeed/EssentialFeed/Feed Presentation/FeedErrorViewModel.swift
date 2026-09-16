@@ -5,8 +5,8 @@
 //  Created by Mark Kenneth Bayona on 9/15/26.
 //
 
-struct FeedErrorViewModel {
-    let message: String?
+public struct FeedErrorViewModel {
+    public let message: String?
 
     static var noError: FeedErrorViewModel {
         FeedErrorViewModel(message: nil)
