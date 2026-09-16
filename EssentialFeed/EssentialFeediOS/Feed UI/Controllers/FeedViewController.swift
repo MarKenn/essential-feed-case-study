@@ -7,26 +7,24 @@
 
 import UIKit
 
-public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    public private(set) var refreshController: FeedRefreshViewController?
+protocol FeedViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView {
+    var delegate: FeedViewControllerDelegate?
+
     var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
 
-    convenience init(refreshController: FeedRefreshViewController) {
-        self.init()
-        self.refreshController = refreshController
-    }
-
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.prefetchDataSource = self
-        refreshControl = refreshController?.view
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
-            vc.refreshController?.refresh()
+            vc.refresh()
         }
     }
 
@@ -36,12 +34,24 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         onViewIsAppearing?(self)
     }
 
+    @IBAction func refresh() {
+        delegate?.didRequestFeedRefresh()
+    }
+
+    func display(_ viewModel: FeedLoadingViewModel) {
+        if viewModel.isLoading {
+            refreshControl?.beginRefreshing()
+        } else {
+            refreshControl?.endRefreshing()
+        }
+    }
+
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableModel.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cellController(forRowAt: indexPath).view()
+        cellController(forRowAt: indexPath).view(in: tableView)
     }
 
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
