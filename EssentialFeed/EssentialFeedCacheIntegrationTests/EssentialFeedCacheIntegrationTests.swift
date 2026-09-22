@@ -22,15 +22,15 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         undoStoreSideEffects()
     }
     
-    func test_load_deliversNoItemOnEmptyCache() throws {
-        let sut = try makeSUT()
+    func test_load_deliversNoItemOnEmptyCache() {
+        let sut = makeSUT()
 
         expect(sut, toLoad: [])
     }
 
-    func test_load_deliversItemsSavedOnASeparateInstance() throws {
-        let sutToPerformSave = try makeSUT()
-        let sutToPerformLoad = try makeSUT()
+    func test_load_deliversItemsSavedOnASeparateInstance() {
+        let sutToPerformSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
 
         save(feed, with: sutToPerformSave)
@@ -38,10 +38,10 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         expect(sutToPerformLoad, toLoad: feed)
     }
 
-    func test_load_overridesItemsSavedOnASeparateInstance() throws {
-        let sutToPerformFirstSave = try makeSUT()
-        let sutToPerformLastSave = try makeSUT()
-        let sutToPerformLoad = try makeSUT()
+    func test_load_overridesItemsSavedOnASeparateInstance() {
+        let sutToPerformFirstSave = makeSUT()
+        let sutToPerformLastSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
         let firstFeed = uniqueImageFeed().models
         let latestFeed = uniqueImageFeed().models
 
@@ -53,9 +53,9 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) throws -> LocalFeedLoader {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> LocalFeedLoader {
         let storeURL = testSpecificStoreURL()
-        let store = try CoreDataFeedStore(storeURL: storeURL)
+        let store = try! CoreDataFeedStore(storeURL: storeURL)
         let sut = LocalFeedLoader(store: store, currentDate: Date.init)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
