@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF87AB33306375EA009455CC /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB31306375EA009455CC /* EssentialFeed.framework */; };
+		EF87AB34306375EA009455CC /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB31306375EA009455CC /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF87AB35306375EA009455CC /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB32306375EA009455CC /* EssentialFeediOS.framework */; };
+		EF87AB36306375EA009455CC /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB32306375EA009455CC /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EF87A9143062789C009455CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,10 +30,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EF87AB37306375EA009455CC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EF87AB34306375EA009455CC /* EssentialFeed.framework in Embed Frameworks */,
+				EF87AB36306375EA009455CC /* EssentialFeediOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EF87A8FD3062789A009455CC /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF87A9133062789C009455CC /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF87A91D3062789C009455CC /* EssentialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF87AB31306375EA009455CC /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF87AB32306375EA009455CC /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF87AB33306375EA009455CC /* EssentialFeed.framework in Frameworks */,
+				EF87AB35306375EA009455CC /* EssentialFeediOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +117,7 @@
 				EF87A8FF3062789A009455CC /* EssentialApp */,
 				EF87A9163062789C009455CC /* EssentialAppTests */,
 				EF87A9203062789C009455CC /* EssentialAppUITests */,
+				EF87AB30306375EA009455CC /* Frameworks */,
 				EF87A8FE3062789A009455CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +132,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EF87AB30306375EA009455CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF87AB31306375EA009455CC /* EssentialFeed.framework */,
+				EF87AB32306375EA009455CC /* EssentialFeediOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +151,7 @@
 				EF87A8F93062789A009455CC /* Sources */,
 				EF87A8FA3062789A009455CC /* Frameworks */,
 				EF87A8FB3062789A009455CC /* Resources */,
+				EF87AB37306375EA009455CC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
