@@ -12,6 +12,7 @@
 		EF87AB35306375EA009455CC /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB32306375EA009455CC /* EssentialFeediOS.framework */; };
 		EF87AB36306375EA009455CC /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF87AB32306375EA009455CC /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF87AC2E3063BB5F009455CC /* EssentialApp.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = EF87AC2D3063BB5F009455CC /* EssentialApp.xctestplan */; };
+		EF97F7C23064E09C00C398C3 /* CI_iOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = EF97F7C13064E09C00C398C3 /* CI_iOS.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		EF87AB31306375EA009455CC /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF87AB32306375EA009455CC /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF87AC2D3063BB5F009455CC /* EssentialApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialApp.xctestplan; sourceTree = "<group>"; };
+		EF97F7C13064E09C00C398C3 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				EF87AC2D3063BB5F009455CC /* EssentialApp.xctestplan */,
+				EF97F7C13064E09C00C398C3 /* CI_iOS.xctestplan */,
 				EF87A8FF3062789A009455CC /* EssentialApp */,
 				EF87A9163062789C009455CC /* EssentialAppTests */,
 				EF87AB30306375EA009455CC /* Frameworks */,
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF97F7C23064E09C00C398C3 /* CI_iOS.xctestplan in Resources */,
 				EF87AC2E3063BB5F009455CC /* EssentialApp.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
