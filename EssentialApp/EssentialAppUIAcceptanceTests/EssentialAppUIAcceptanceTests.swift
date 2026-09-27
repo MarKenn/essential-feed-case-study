@@ -11,7 +11,7 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
 
     func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
         let app = XCUIApplication()
-
+        app.launchArguments = ["-reset"]
         app.launch()
         _ = app.waitForExistence(timeout: 1.0)
 
@@ -24,11 +24,14 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
 
     func test_onLaunch_displaysCachedRemoteFeedWhenCustomerHasNoConnectivity() {
         let onlineApp = XCUIApplication()
+        onlineApp.launchArguments = ["-reset"]
         onlineApp.launch()
+        _ = onlineApp.waitForExistence(timeout: 1.0)
 
         let offlineApp = XCUIApplication()
         offlineApp.launchArguments = ["-connectivity", "offline"]
         offlineApp.launch()
+        _ = offlineApp.waitForExistence(timeout: 1.0)
 
         let cachedFeedCells = offlineApp.cells.matching(identifier: "feed-image-cell")
         XCTAssertEqual(cachedFeedCells.count, 22)
@@ -41,6 +44,7 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["-reset", "-connectivity", "offline"]
         app.launch()
+        _ = app.waitForExistence(timeout: 1.0)
 
         let feedCells = app.cells.matching(identifier: "feed-image-cell")
         XCTAssertEqual(feedCells.count, 0)
