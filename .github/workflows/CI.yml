@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v6
 
     - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_26.3.0.app
+      run: sudo xcode-select -switch /Applications/Xcode_26.3.app
 
     - name: Build And Test Platform Independent
       run: >
@@ -24,15 +24,7 @@ jobs:
         -scheme "CI_macOS"
         -sdk macosx
         -destination "platform=macOS"
-        -resultBundlePath PlatformTestResults.xcresult
         CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES
-
-    - name: Upload Platform Test Results
-      uses: actions/upload-artifact@v7
-      if: failure() # Ensures logs are uploaded only if tests fail
-      with:
-        name: platform-test-results
-        path: PlatformTestResults.xcresult
 
     - name: Build And Test iOS Platform Independent
       run: >
@@ -41,12 +33,4 @@ jobs:
         -scheme "CI_iOS"
         -sdk iphonesimulator
         -destination "platform=iOS Simulator,OS=26.4,name=iPhone 17 Pro"
-        -resultBundlePath iOSPlatformTestResults.xcresult
         CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES
-
-    - name: Upload iOS Platform Test Results
-      uses: actions/upload-artifact@v7
-      if: failure() # Ensures logs are uploaded only if tests fail
-      with:
-        name: ios-platform-test-results
-        path: iOSPlatformTestResults.xcresult
