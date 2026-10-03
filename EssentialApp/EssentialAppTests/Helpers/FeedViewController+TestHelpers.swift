@@ -12,11 +12,47 @@ extension FeedViewController {
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
-            replaceRefreshControlWithFake()
+            prepareForFirstAppearance()
         }
 
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
+    }
+
+    private func prepareForFirstAppearance() {
+        setSmallFrameToPreventRenderingCells()
+        replaceRefreshControlWithFake()
+    }
+
+    private func setSmallFrameToPreventRenderingCells() {
+        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
+    }
+
+    func replaceRefreshControlWithFake() {
+        let fake = FakeRefreshControl()
+
+        refreshControl?.allTargets.forEach { target in
+            refreshControl?.actions(
+                forTarget: target, forControlEvent: .valueChanged
+            )?.forEach {
+                fake.addTarget(target, action: Selector($0), for: .valueChanged)
+            }
+        }
+
+        refreshControl = fake
+    }
+
+    private class FakeRefreshControl: UIRefreshControl {
+        private var _isRefreshing = false
+        override var isRefreshing: Bool { _isRefreshing }
+
+        override func beginRefreshing() {
+            _isRefreshing = true
+        }
+
+        override func endRefreshing() {
+            _isRefreshing = false
+        }
     }
 
     func simulateUserInitiatedFeedReload() {
@@ -81,34 +117,4 @@ extension FeedViewController {
         0
     }
 
-    // MARK: FakeRefreshControl
-
-    func replaceRefreshControlWithFake() {
-        let fake = FakeRefreshControl()
-
-        refreshControl?.allTargets.forEach { target in
-            refreshControl?.actions(
-                forTarget: target, forControlEvent: .valueChanged
-            )?.forEach {
-                fake.addTarget(target, action: Selector($0), for: .valueChanged)
-            }
-        }
-
-        refreshControl = fake
-    }
-
-}
-
-
-private class FakeRefreshControl: UIRefreshControl {
-    private var _isRefreshing = false
-    override var isRefreshing: Bool { _isRefreshing }
-
-    override func beginRefreshing() {
-        _isRefreshing = true
-    }
-
-    override func endRefreshing() {
-        _isRefreshing = false
-    }
 }
