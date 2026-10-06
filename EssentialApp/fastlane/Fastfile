@@ -22,4 +22,11 @@ platform :ios do
       scheme: "EssentialApp"
     )
   end
+
+  desc "Build EssentialApp"
+  lane :essential_app_build do
+    build_app(
+      scheme: "EssentialApp"
+    )
+  end
 end
