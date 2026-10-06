@@ -13,6 +13,19 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
+## Mac
+
+### mac CI_macOS
+
+```sh
+[bundle exec] fastlane mac CI_macOS
+```
+
+Build And Test Platform Independent
+
+----
+
+
 ## iOS
 
 ### ios essential_app_tests

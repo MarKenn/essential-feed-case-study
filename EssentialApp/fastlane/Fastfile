@@ -15,6 +15,17 @@
 
 default_platform(:ios)
 
+platform :mac do
+  desc "Build And Test Platform Independent"
+  lane :CI_macOS do
+    run_tests(
+      scheme: "CI_macOS",
+      clean: true,
+      xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
+    )
+  end
+end
+
 platform :ios do
   desc "Run EssentialApp tests"
   lane :essential_app_tests do
