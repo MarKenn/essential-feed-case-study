@@ -100,3 +100,7 @@ fastlane/test_output/
 **/test_output/
 *.junit
 report.xml
+
+# Fastlane keys
+.env
+*.p8
