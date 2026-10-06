@@ -36,6 +36,14 @@ Build And Test Platform Independent
 
 Build And Test iOS Platform
 
+### ios CI_iOS_Local
+
+```sh
+[bundle exec] fastlane ios CI_iOS_Local
+```
+
+Build And Test iOS Platform Locally
+
 ### ios essential_app_build
 
 ```sh
