@@ -20,6 +20,7 @@ platform :mac do
   lane :CI_macOS do
     run_tests(
       scheme: "CI_macOS",
+      destination: "platform=macOS",
       clean: true,
       xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
@@ -31,7 +32,7 @@ platform :ios do
   lane :CI_iOS do
     run_tests(
       scheme: "CI_iOS",
-      devices: ["iPhone 17 Pro (26.4.1)"],
+      destination: "platform=iOS Simulator,OS=26.4,name=iPhone 17 Pro",
       clean: true,
       xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
