@@ -92,3 +92,11 @@ fastlane/test_output
 /*.gcno
 
 # End of https://www.gitignore.io/api/swift,xcode
+
+### Custom ### 
+
+# Fastlane test artifacts
+fastlane/test_output/
+**/test_output/
+*.junit
+report.xml
