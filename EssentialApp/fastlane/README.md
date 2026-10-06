@@ -28,13 +28,13 @@ Build And Test Platform Independent
 
 ## iOS
 
-### ios essential_app_tests
+### ios CI_iOS
 
 ```sh
-[bundle exec] fastlane ios essential_app_tests
+[bundle exec] fastlane ios CI_iOS
 ```
 
-Run EssentialApp tests
+Build And Test iOS Platform
 
 ### ios essential_app_build
 

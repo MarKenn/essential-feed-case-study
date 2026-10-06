@@ -27,10 +27,13 @@ platform :mac do
 end
 
 platform :ios do
-  desc "Run EssentialApp tests"
-  lane :essential_app_tests do
+  desc "Build And Test iOS Platform"
+  lane :CI_iOS do
     run_tests(
-      scheme: "EssentialApp"
+      scheme: "CI_iOS",
+      devices: ["iPhone 17 Pro (26.4.1)"],
+      clean: true,
+      xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
   end
 
