@@ -66,7 +66,7 @@ platform :ios do
   lane :Deploy_From_CI do
     setup_ci
     
-    match(type: "appstore", readonly: true)
+    match(type: "appstore")
 
     build_app(
       scheme: "EssentialApp",
