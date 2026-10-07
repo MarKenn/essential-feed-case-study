@@ -71,8 +71,15 @@ platform :ios do
     match(type: "appstore", readonly: false)
 
     build_app(
+      workspace: "EssentialApp.xcworkspace",
       scheme: "EssentialApp",
-      clean: true
+      clean: true,
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: {
+          "com.mkmbayona.EssentialAppCaseStudy" => "match AppStore com.mkmbayona.EssentialAppCaseStudy"
+        }
+      }
     )
 
     upload_to_testflight(
