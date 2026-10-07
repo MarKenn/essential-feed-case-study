@@ -1,0 +1,36 @@
+name: CI-iOS
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+
+    runs-on: macos-26
+    defaults:
+      run:
+        working-directory: ./EssentialApp
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_26.4.1.app
+
+    - name: Xcode version
+      run: /usr/bin/xcodebuild -version
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+
+    - name: Install Bundler Dependencies
+      run: bundle install
+
+    - name: Build And Test iOS Platform
+      run: bundle exec fastlane CI_iOS
+      env:
+        FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: "60"
+        FASTLANE_XCODEBUILD_SETTINGS_RETRIES: "10"
