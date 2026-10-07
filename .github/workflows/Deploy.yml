@@ -29,6 +29,15 @@ jobs:
     - name: Install Bundler Dependencies
       run: bundle install
 
+    - name: Set up SSH for Match
+      env:
+        SSH_KEY: ${{ secrets.MATCH_REPO_SSH_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
     - name: Decode Apple API .p8 Key
       env:
         P8_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT_BASE64 }}
@@ -40,5 +49,5 @@ jobs:
           APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_KEY_FILEPATH: "./fastlane/AuthKey_${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}.p8"
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }} 
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: bundle exec fastlane Deploy_From_CI
