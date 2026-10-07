@@ -73,9 +73,7 @@ platform :ios do
     build_app(
       workspace: "EssentialApp.xcworkspace",
       scheme: "EssentialApp",
-      clean: true,
-      export_method: "app-store",
-      xcargs: "-allowProvisioningUpdates"
+      clean: true
     )
 
     upload_to_testflight(
