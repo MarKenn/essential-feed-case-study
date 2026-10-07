@@ -44,13 +44,21 @@ Build And Test iOS Platform
 
 Build And Test iOS Platform Locally
 
-### ios essential_app_build
+### ios Deploy_From_Local
 
 ```sh
-[bundle exec] fastlane ios essential_app_build
+[bundle exec] fastlane ios Deploy_From_Local
 ```
 
-Build EssentialApp
+Build iOS app locally and upload to Testflight
+
+### ios Deploy_From_CI
+
+```sh
+[bundle exec] fastlane ios Deploy_From_CI
+```
+
+Build iOS app on CI and upload to Testflight
 
 ----
 
