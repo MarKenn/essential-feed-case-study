@@ -19,8 +19,10 @@ platform :mac do
   desc "Build And Test Platform Independent"
   lane :CI_macOS do
     run_tests(
+      project: "../EssentialFeed/EssentialFeed.xcodeproj",
       scheme: "CI_macOS",
-      destination: "platform=macOS",
+      sdk: "macosx",
+      destination: "platform=macOS,arch=arm64",
       clean: true,
       xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
@@ -31,8 +33,10 @@ platform :ios do
   desc "Build And Test iOS Platform"
   lane :CI_iOS do
     run_tests(
+      workspace: "EssentialApp.xcworkspace",
       scheme: "CI_iOS",
-      destination: "platform=iOS Simulator,OS=26.4.1,name=iPhone 17 Pro",
+      sdk: "iphonesimulator",
+      destination: "platform=iOS Simulator,arch=arm64,OS=26.4.1,name=iPhone 17 Pro",
       clean: true,
       xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
@@ -41,8 +45,10 @@ platform :ios do
   desc "Build And Test iOS Platform Locally"
   lane :CI_iOS_Local do
     run_tests(
+      workspace: "EssentialApp.xcworkspace",
       scheme: "CI_iOS",
-      destination: "platform=iOS Simulator,OS=26.4,name=iPhone 17 Pro",
+      sdk: "iphonesimulator",
+      destination: "platform=iOS Simulator,arch=arm64,OS=26.4,name=iPhone 17 Pro",
       clean: true,
       xcargs: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES'
     )
