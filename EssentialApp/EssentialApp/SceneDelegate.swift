@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import EssentialFeed
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,11 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient(session: .init(configuration: .ephemeral))
     }()
-
-    private lazy var remoteFeedLoader = RemoteLoader(
-        url: URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!,
-        client: httpClient,
-        mapper: FeedItemsMapper.map)
 
     private lazy var store: FeedStore & FeedImageDataStore = {
         try! CoreDataFeedStore(
@@ -88,8 +84,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func makeRemoteFeedLoaderWithLocalFallback() -> FeedLoader.Publisher {
-        remoteFeedLoader
-            .loadPublisher()
+        httpClient
+            .getPublisher(from: URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!)
+            .tryMap(FeedItemsMapper.map)
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
     }
