@@ -15,7 +15,6 @@ final class FeedItemsMapperTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
 
         try samples.forEach { code in
-
             XCTAssertThrowsError(
                 try FeedItemsMapper.map(json, from: HTTPURLResponse(statusCode: code))
             )
@@ -74,15 +73,4 @@ final class FeedItemsMapperTests: XCTestCase {
         return (item, json)
     }
 
-    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
-        let json = ["items": items]
-        return try! JSONSerialization.data(withJSONObject: json)
-    }
-
-}
-
-private extension HTTPURLResponse {
-    convenience init(statusCode: Int) {
-        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
-    }
 }
