@@ -17,9 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         URLSessionHTTPClient(session: .init(configuration: .ephemeral))
     }()
 
-    private lazy var remoteFeedLoader = RemoteFeedLoader(
+    private lazy var remoteFeedLoader = RemoteLoader(
         url: URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!,
-        client: httpClient)
+        client: httpClient,
+        mapper: FeedItemsMapper.map)
 
     private lazy var store: FeedStore & FeedImageDataStore = {
         try! CoreDataFeedStore(
