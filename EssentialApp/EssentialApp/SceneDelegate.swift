@@ -83,7 +83,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-    private func makeRemoteFeedLoaderWithLocalFallback() -> FeedLoader.Publisher {
+    private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<[FeedImage], Error> {
         httpClient
             .getPublisher(from: URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!)
             .tryMap(FeedItemsMapper.map)
