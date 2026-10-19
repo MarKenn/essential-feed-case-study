@@ -5,6 +5,6 @@
 //  Created by Mark Kenneth Bayona on 9/15/26.
 //
 
-public struct FeedLoadingViewModel {
+public struct ResourceLoadingViewModel {
     public let isLoading: Bool
 }
