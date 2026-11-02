@@ -34,7 +34,7 @@ final class ImageCommentsSnapshotTests: XCTestCase {
     }
 
     private func comments() -> [CellController] {
-        commentControllers().map(CellController.init)
+        commentControllers().map { CellController(id: UUID(), $0) }
     }
 
     private func commentControllers() -> [ImageCommentCellController] {
