@@ -24,6 +24,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
@@ -64,6 +65,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         super.viewDidLayoutSubviews()
 
         tableView.sizeTableHeaderToFit()
+    }
+
+    public override func traitCollectionDidChange(_ previous: UITraitCollection?) {
+        if previous?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+            tableView.reloadData()
+        }
     }
 
     @IBAction func refresh() {
