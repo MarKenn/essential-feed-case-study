@@ -8,48 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Feed View Controller-->
+        <!--List View Controller-->
         <scene sceneID="C8D-tb-Dua">
             <objects>
-                <tableViewController id="4Mh-Ti-165" customClass="FeedViewController" customModule="EssentialFeediOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cmc-Yf-hoc">
+                <tableViewController id="4Mh-Ti-165" customClass="ListViewController" customModule="EssentialFeediOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="580" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cmc-Yf-hoc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="1Sl-S3-vMz" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-iw-QOl">
-                                    <rect key="frame" x="8" y="8" width="377" height="18"/>
-                                    <viewLayoutGuide key="safeArea" id="lke-o4-xNh"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.99951404330000004" green="0.41759261489999999" blue="0.4154433012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="ftQ-iw-QOl" secondAttribute="bottom" constant="8" id="UKW-S7-enm"/>
-                                <constraint firstItem="ftQ-iw-QOl" firstAttribute="leading" secondItem="1Sl-S3-vMz" secondAttribute="leadingMargin" id="YS0-gQ-LAZ"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="ftQ-iw-QOl" secondAttribute="trailing" id="gid-Ry-UMX"/>
-                                <constraint firstItem="ftQ-iw-QOl" firstAttribute="top" secondItem="1Sl-S3-vMz" secondAttribute="top" constant="8" id="rcf-y4-Faa"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="ftQ-iw-QOl" id="nD8-4X-vbc"/>
-                                <outletCollection property="gestureRecognizers" destination="8vS-AD-pQk" appends="YES" id="S1i-lO-OUH"/>
-                            </connections>
-                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="eHF-H5-OpW">
-                            <rect key="frame" x="0.0" y="692" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="658" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <viewLayoutGuide key="safeArea" id="o4Q-W7-CH6"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="jnC-Cd-yyW" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="393" height="580"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jnC-Cd-yyW" id="7dz-sl-pfu">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="580"/>
@@ -59,10 +34,10 @@
                                             <rect key="frame" x="20" y="21" width="353" height="538"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-7n-0il" userLabel="Location Container">
-                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="50.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngz-uG-fwm" userLabel="Pin Container">
-                                                            <rect key="frame" x="0.0" y="0.0" width="10" height="50.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="10" height="38"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="PWh-7l-Er3">
                                                                     <rect key="frame" x="0.0" y="3" width="10" height="14"/>
@@ -78,18 +53,18 @@
                                                                 <constraint firstItem="PWh-7l-Er3" firstAttribute="top" secondItem="ngz-uG-fwm" secondAttribute="top" constant="3" id="LTJ-Er-gqZ"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiy-J3-CLZ">
-                                                            <rect key="frame" x="16" y="0.0" width="337" height="36"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiy-J3-CLZ">
+                                                            <rect key="frame" x="16" y="0.0" width="337" height="38"/>
                                                             <string key="text">Location,
 Location</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvO-3n-p08" userLabel="Image Container">
-                                                    <rect key="frame" x="0.0" y="60.333333333333314" width="353" height="353"/>
+                                                    <rect key="frame" x="0.0" y="48" width="353" height="353"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B42-Xo-1Rl">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="353"/>
@@ -127,10 +102,10 @@ Location</string>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-Ey-G1r">
-                                                    <rect key="frame" x="0.0" y="423.33333333333331" width="349" height="114.66666666666669"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-Ey-G1r">
+                                                    <rect key="frame" x="0.0" y="411" width="352" height="127"/>
                                                     <string key="text">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -172,16 +147,9 @@ Location</string>
                             <action selector="refresh" destination="4Mh-Ti-165" eventType="valueChanged" id="YNq-a3-O1n"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="errorView" destination="1Sl-S3-vMz" id="VNy-Up-fbs"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raa-bu-miX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8vS-AD-pQk">
-                    <connections>
-                        <action selector="hideMessageAnimated" destination="1Sl-S3-vMz" id="Bc4-A5-10P"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8vS-AD-pQk"/>
             </objects>
             <point key="canvasLocation" x="837.40458015267177" y="-116.19718309859155"/>
         </scene>

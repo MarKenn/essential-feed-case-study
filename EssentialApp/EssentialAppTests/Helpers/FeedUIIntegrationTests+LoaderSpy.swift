@@ -26,6 +26,7 @@ extension FeedUIIntegrationTests {
 
         func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
             feedRequests[index].send(feed)
+            feedRequests[index].send(completion: .finished)
         }
 
         func completeFeedLoadingWithError(at index: Int) {
