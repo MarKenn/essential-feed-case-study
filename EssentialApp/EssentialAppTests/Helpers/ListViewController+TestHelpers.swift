@@ -59,6 +59,18 @@ extension ListViewController {
         refreshControl?.simulatePullToRefresh()
     }
 
+    var isShowingLoadingIndicator: Bool {
+        refreshControl?.isRefreshing == true
+    }
+
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
+    }
+
+    var errorMessage: String? {
+        errorView.message
+    }
+
     @discardableResult
     func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
         return feedImageView(at: index) as? FeedImageCell
@@ -102,18 +114,6 @@ extension ListViewController {
 
     func renderedFeedImageData(at index: Int) -> Data? {
         simulateFeedImageViewVisible(at: index)?.renderedImage
-    }
-
-    func simulateErrorViewTap() {
-        errorView.simulateTap()
-    }
-
-    var errorMessage: String? {
-        errorView.message
-    }
-
-    var isShowingLoadingIndicator: Bool {
-        refreshControl?.isRefreshing == true
     }
 
     func numberOfRenderedFeedImageViews() -> Int {
