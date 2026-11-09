@@ -70,11 +70,23 @@ extension ListViewController {
     var errorMessage: String? {
         errorView.message
     }
+
+    func numberOfRows(in section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+
+    func cell(row: Int, section: Int) -> UITableViewCell? {
+        guard numberOfRows(in: section) > row else { return nil }
+
+        let ds = tableView.dataSource
+        let indexPath = IndexPath(row: row, section: section)
+        return ds?.tableView(tableView, cellForRowAt: indexPath)
+    }
 }
 
 extension ListViewController {
     func numberOfRenderedComments() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: commentsSection)
+        numberOfRows(in: commentsSection)
     }
 
     func commentMessage(at row: Int) -> String? {
@@ -90,16 +102,10 @@ extension ListViewController {
     }
 
     private func commentView(at row: Int) -> ImageCommentCell? {
-        guard numberOfRenderedFeedImageViews() > row else { return nil }
-
-        let ds = tableView.dataSource
-        let indexPath = IndexPath(row: row, section: feedImagesSection)
-        return ds?.tableView(tableView, cellForRowAt: indexPath) as? ImageCommentCell
+        cell(row: row, section: commentsSection) as? ImageCommentCell
     }
 
-    private var commentsSection: Int {
-        0
-    }
+    private var commentsSection: Int { 0 }
 }
 
 extension ListViewController {
@@ -155,19 +161,12 @@ extension ListViewController {
     }
 
     func numberOfRenderedFeedImageViews() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
+        numberOfRows(in: feedImagesSection)
     }
 
     func feedImageView(at row: Int) -> UITableViewCell? {
-        guard numberOfRenderedFeedImageViews() > row else { return nil }
-
-        let ds = tableView.dataSource
-        let indexPath = IndexPath(row: row, section: feedImagesSection)
-        return ds?.tableView(tableView, cellForRowAt: indexPath)
+        cell(row: row, section: feedImagesSection)
     }
 
-    private var feedImagesSection: Int {
-        0
-    }
-
+    private var feedImagesSection: Int { 0 }
 }
