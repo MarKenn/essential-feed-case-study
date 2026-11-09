@@ -58,7 +58,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
         let store = FeedImageDataStoreSpy()
         let sut = LocalFeedImageDataLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
@@ -74,7 +74,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
         _ sut: LocalFeedImageDataLoader,
         toCompleteWith expectedResult: LocalFeedImageDataLoader.SaveResult,
         when action: () -> Void,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let exp = expectation(description: "Wait for completion")

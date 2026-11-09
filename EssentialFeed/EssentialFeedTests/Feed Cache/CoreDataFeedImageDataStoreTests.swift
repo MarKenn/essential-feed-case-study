@@ -72,7 +72,7 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CoreDataFeedStore {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CoreDataFeedStore {
         let storeURL = URL(filePath: "/dev/null")
         let sut = try! CoreDataFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -95,7 +95,7 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         _ sut: CoreDataFeedStore,
         toCompleteRetrievalWith expectedResult: FeedImageDataStore.RetrievalResult,
         for url: URL,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let exp = expectation(description: "Wait for cache retrieval")
@@ -117,7 +117,7 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         _ data: Data,
         for url: URL,
         into sut: CoreDataFeedStore,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let exp = expectation(description: "Wait for cache insertion")
